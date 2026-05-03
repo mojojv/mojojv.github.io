@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Camilo Velásquez — Data Scientist & HealthTech AI</title>
+  <meta name="description" content="Portfolio de Juan Camilo Velásquez Pérez — Data Scientist, HealthTech, AI, Medical Imaging. Medellín, Colombia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-content">
+      <div class="loader-ascii" id="loaderAscii"></div>
+      <p class="loader-text">Initializing...</p>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- CANVAS -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <span class="logo-bracket">[</span>
+      <span class="logo-text">JV</span>
+      <span class="logo-bracket">]</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home"       class="nav-link active" id="nav-home">~/ inicio</a></li>
+      <li><a href="#about"      class="nav-link" id="nav-about">~/ sobre mí</a></li>
+      <li><a href="#projects"   class="nav-link" id="nav-projects">~/ proyectos</a></li>
+      <li><a href="#community"  class="nav-link" id="nav-community">~/ comunidad</a></li>
+      <li><a href="#interests"  class="nav-link" id="nav-interests">~/ intereses</a></li>
+      <li><a href="#clarice"    class="nav-link" id="nav-clarice">~/ clarice</a></li>
+      <li><a href="#blog"       class="nav-link" id="nav-blog">~/ blog</a></li>
+      <li><a href="#contact"    class="nav-link" id="nav-contact">~/ contacto</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="home" class="section hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <p class="hero-greeting">
+          <span class="terminal-prompt">$</span>
+          <span class="typed-greeting" id="typedGreeting"></span>
+          <span class="cursor-blink">█</span>
+        </p>
+        <h1 class="hero-name">
+          <span class="name-line" id="heroFirstName">Juan Camilo</span>
+          <span class="name-line accent" id="heroLastName">Velásquez</span>
+        </h1>
+        <p class="hero-role" id="heroRole">Data Scientist · HealthTech · AI</p>
+        <p class="hero-tagline" id="heroTagline">
+          Apasionado por la intersección entre <span class="highlight">datos</span>,
+          <span class="highlight">salud</span> y <span class="highlight">matemáticas</span>.
+          Desde Medellín para el mundo 🇨🇴
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary" id="btn-projects">
+            <i class="fas fa-code-branch"></i> Ver proyectos
+          </a>
+          <a href="#contact" class="btn btn-outline" id="btn-contact">
+            <i class="fas fa-terminal"></i> Contactar
+          </a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://linkedin.com/in/juan-camilo-velásquez-pérez" target="_blank" rel="noopener" class="social-link" id="social-linkedin" aria-label="LinkedIn">
+            <i class="fab fa-linkedin"></i><span>LinkedIn</span>
+          </a>
+          <a href="https://github.com/mojojv" target="_blank" rel="noopener" class="social-link" id="social-github" aria-label="GitHub">
+            <i class="fab fa-github"></i><span>GitHub</span>
+          </a>
+          <a href="https://www.instagram.com/juancavelasqup/" target="_blank" rel="noopener" class="social-link" id="social-instagram" aria-label="Instagram">
+            <i class="fab fa-instagram"></i><span>Instagram</span>
+          </a>
+          <a href="https://stackoverflow.com/users/JuanCamilo13915" target="_blank" rel="noopener" class="social-link" id="social-stackoverflow" aria-label="Stack Overflow">
+            <i class="fab fa-stack-overflow"></i><span>Stack Overflow</span>
+          </a>
+          <a href="https://x.com/JuanCamilo13915" target="_blank" rel="noopener" class="social-link" id="social-twitter" aria-label="X / Twitter">
+            <i class="fab fa-x-twitter"></i><span>@JuanCamilo13915</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Terminal window -->
+      <div class="hero-visual">
+        <div class="ascii-window" id="asciiWindow">
+          <div class="window-bar">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="window-title">juancamilo.sh</span>
+          </div>
+          <div class="window-body" id="windowBody"></div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about" class="section about-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-tag">// 01</span>
+        Sobre mí
+      </h2>
+      <div class="about-grid">
+        <div class="about-photo-col">
+          <div class="photo-frame">
+            <img src="https://avatars.githubusercontent.com/u/108507422?v=4"
+                 alt="Juan Camilo Velásquez"
+                 class="profile-photo"
+                 id="profilePhoto"
+                 onerror="this.src='https://ui-avatars.com/api/?name=Juan+Camilo&background=0f1117&color=58a6ff&size=400'" />
+            <div class="photo-glow"></div>
+          </div>
+          <div class="photo-badges">
+            <span class="badge badge-green">● Disponible para colaborar</span>
+            <span class="badge badge-blue">📍 Medellín, Colombia</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="about-lead">
+            Hola, soy <strong>Juan Camilo</strong> — Data Scientist enfocado en
+            <em>HealthTech</em>, imágenes médicas y modelos matemáticos aplicados
+            a problemas reales.
+          </p>
+          <p>
+            Trabajo en la frontera donde los datos se convierten en diagnósticos,
+            donde una ecuación diferencial puede salvar una vida y donde la ciencia
+            de datos deja de ser abstracta para volverse <em>urgente</em>.
+          </p>
+          <p>
+            También me apasionan la literatura, la física, la música y todo lo que
+            reta mis modelos mentales. Creo que las mejores ideas están en las
+            intersecciones.
+          </p>
+          <div class="skills-grid" id="skillsGrid">
+            <div class="skill-tag">Python</div>
+            <div class="skill-tag">Deep Learning</div>
+            <div class="skill-tag">Medical Imaging</div>
+            <div class="skill-tag">Data Science</div>
+            <div class="skill-tag">Matemáticas</div>
+            <div class="skill-tag">CNN / ViT</div>
+            <div class="skill-tag">Computer Vision</div>
+            <div class="skill-tag">NLP</div>
+            <div class="skill-tag">MLOps</div>
+            <div class="skill-tag">DICOM</div>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="card-header">
+            <span class="terminal-prompt">$</span> whoami
+          </div>
+          <div class="card-body">
+            <div class="info-row"><span class="info-key">name</span><span class="info-sep">:</span><span class="info-val">Juan Camilo Velásquez</span></div>
+            <div class="info-row"><span class="info-key">role</span><span class="info-sep">:</span><span class="info-val">Data Scientist</span></div>
+            <div class="info-row"><span class="info-key">location</span><span class="info-sep">:</span><span class="info-val">Medellín 🇨🇴</span></div>
+            <div class="info-row"><span class="info-key">github</span><span class="info-sep">:</span><span class="info-val"><a href="https://github.com/mojojv" target="_blank" style="color:var(--accent)">@mojojv</a></span></div>
+            <div class="info-row"><span class="info-key">linkedin</span><span class="info-sep">:</span><span class="info-val"><a href="https://linkedin.com/in/juan-camilo-velásquez-pérez" target="_blank" style="color:var(--accent)">juan-camilo-v</a></span></div>
+            <div class="info-row"><span class="info-key">instagram</span><span class="info-sep">:</span><span class="info-val"><a href="https://instagram.com/juancavelasqup" target="_blank" style="color:var(--accent)">@juancavelasqup</a></span></div>
+            <div class="info-row"><span class="info-key">x / twitter</span><span class="info-sep">:</span><span class="info-val"><a href="https://x.com/JuanCamilo13915" target="_blank" style="color:var(--accent)">@JuanCamilo13915</a></span></div>
+            <div class="info-row"><span class="info-key">stack_overflow</span><span class="info-sep">:</span><span class="info-val"><a href="https://stackoverflow.com/users/JuanCamilo13915" target="_blank" style="color:var(--accent)">JuanCamilo13915</a></span></div>
+            <div class="info-row"><span class="info-key">status</span><span class="info-sep">:</span><span class="info-val status-available">● open to collaboration</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-tag">// 02</span>
+        Proyectos en GitHub
+      </h2>
+      <p class="section-sub">Extraídos directamente de <a href="https://github.com/mojojv" target="_blank" class="inline-link">github.com/mojojv</a> · Se actualizan con cada nuevo repo.</p>
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all" id="filter-all">Todos</button>
+        <button class="filter-btn" data-filter="featured" id="filter-featured">Destacados</button>
+      </div>
+      <div class="projects-grid" id="projectsGrid"></div>
+      <div class="projects-cta">
+        <a href="https://github.com/mojojv" target="_blank" class="btn btn-outline" id="btn-github-all">
+          <i class="fab fa-github"></i> Ver todos en GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMMUNITY ─── -->
+  <section id="community" class="section community-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-tag">// 03</span>
+        Comunidad &amp; Open Source
+      </h2>
+      <p class="section-sub">Organizo y participo activamente en comunidades que impulsan Python, datos y ciencia en Colombia y Latinoamérica.</p>
+
+      <!-- Advocacy posts -->
+      <div class="advocacy-grid" id="advocacyGrid"></div>
+
+      <!-- Communities grid -->
+      <h3 class="subsection-title">Comunidades que apoyo</h3>
+      <div class="communities-grid" id="communitiesGrid"></div>
+
+      <!-- Spotify widget -->
+      <div class="spotify-block">
+        <div class="spotify-label">
+          <i class="fab fa-spotify" style="color:#1db954"></i>
+          <span id="spotifyLabel">Lo que suena mientras programo</span>
+          <span class="spotify-desc" id="spotifyDesc"></span>
+        </div>
+        <div class="spotify-embed">
+          <iframe
+            id="spotifyFrame"
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1DXcBWIGoYBM5M?utm_source=generator&theme=0"
+            width="100%"
+            height="352"
+            frameBorder="0"
+            allowfullscreen
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            style="border-radius:12px;"
+          ></iframe>
+        </div>
+        <p class="spotify-note">Para cambiar la playlist: edita <code>SPOTIFY.playlistId</code> en <code>data.js</code></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── INTERESTS ─── -->
+
+  <section id="interests" class="section interests-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-tag">// 03</span>
+        Lo que me mueve
+      </h2>
+      <p class="section-sub">No soy solo código. Aquí están las cosas que me apasionan, me inspiran y me hacen pensar diferente.</p>
+      <div class="interests-grid" id="interestsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ─── CLARICE LISPECTOR ─── -->
+  <section id="clarice" class="section clarice-section">
+    <div class="clarice-bg">
+      <img src="clarice.png" alt="Arte Clarice Lispector — Literatura y Ciencia" class="clarice-img" />
+      <div class="clarice-overlay"></div>
+    </div>
+    <div class="container clarice-container">
+      <div class="clarice-badge">
+        <span class="clarice-tag">✦ Mentes curiosas</span>
+      </div>
+      <h2 class="clarice-title">
+        <span class="clarice-sub">La lógica del sentir</span>
+        Clarice Lispector
+        <span class="clarice-sub clarice-sub-right">y el pensamiento matemático</span>
+      </h2>
+      <p class="clarice-intro">
+        Mi escritora favorita. Brasileña, filósofa sin saberlo, matemática sin números.
+        Lispector escribía como si cada oración fuera una ecuación que resolvía
+        un sistema imposible: la conciencia humana.
+      </p>
+      <div class="clarice-quotes" id="clariceQuotes"></div>
+      <div class="clarice-reflection">
+        <div class="reflection-card">
+          <div class="reflection-icon">∮</div>
+          <h3>La integral de la existencia</h3>
+          <p>
+            Lispector intuía lo que la topología formalizaría: que el ser humano
+            es una variedad continua, no una función puntual. Sus novelas son
+            mapas de espacios interiores con su propia geometría.
+          </p>
+        </div>
+        <div class="reflection-card">
+          <div class="reflection-icon">∞</div>
+          <h3>Recursividad narrativa</h3>
+          <p>
+            Sus textos se comportan como fractales — cada párrafo contiene
+            la estructura del libro entero. La conciencia como atractor extraño:
+            caótica, bella, determinista en sus profundidades.
+          </p>
+        </div>
+        <div class="reflection-card">
+          <div class="reflection-icon">Δ</div>
+          <h3>El delta de la transformación</h3>
+          <p>
+            En ciencia, Δ representa cambio. En Lispector, cada personaje
+            atraviesa una perturbación irreversible — un cambio de fase
+            en su estado de ser. Termodinámica del alma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BLOG ─── -->
+  <section id="blog" class="section blog-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-tag">// 04</span>
+        Últimas notas
+      </h2>
+      <div class="blog-grid" id="blogGrid"></div>
+      <div class="blog-cta">
+        <a href="#" class="btn btn-outline" id="btn-allposts">
+          <i class="fas fa-arrow-right"></i> Ver todo el blog
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <h2 class="section-title">
+        <span class="section-tag">// 05</span>
+        Hablemos
+      </h2>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p>
+            ¿Tienes un proyecto en HealthTech, datos o algo que desafíe
+            los límites? Mi inbox está siempre abierto — para colaborar,
+            aprender juntos o solo charlar de ciencia.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:juancavelasqup@gmail.com" class="contact-link" id="contact-email">
+              <i class="fas fa-envelope"></i><span>juancavelasqup@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/juan-camilo-velásquez-pérez" target="_blank" rel="noopener" class="contact-link" id="contact-linkedin">
+              <i class="fab fa-linkedin"></i><span>linkedin.com/in/juan-camilo-velásquez-pérez</span>
+            </a>
+            <a href="https://github.com/mojojv" target="_blank" rel="noopener" class="contact-link" id="contact-github">
+              <i class="fab fa-github"></i><span>github.com/mojojv</span>
+            </a>
+            <a href="https://www.instagram.com/juancavelasqup/" target="_blank" rel="noopener" class="contact-link" id="contact-instagram">
+              <i class="fab fa-instagram"></i><span>@juancavelasqup</span>
+            </a>
+            <a href="https://x.com/JuanCamilo13915" target="_blank" rel="noopener" class="contact-link" id="contact-twitter">
+              <i class="fab fa-x-twitter"></i><span>@JuanCamilo13915</span>
+            </a>
+            <a href="https://stackoverflow.com/users/JuanCamilo13915" target="_blank" rel="noopener" class="contact-link" id="contact-stackoverflow">
+              <i class="fab fa-stack-overflow"></i><span>Stack Overflow · JuanCamilo13915</span>
+            </a>
+          </div>
+        </div>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-group">
+            <label for="formName">Nombre</label>
+            <input type="text" id="formName" name="name" placeholder="Tu nombre" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="formEmail">Email</label>
+            <input type="email" id="formEmail" name="email" placeholder="tu@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="formMessage">Mensaje</label>
+            <textarea id="formMessage" name="message" rows="5" placeholder="¿De qué quieres hablar?"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="btn-send">
+            <i class="fas fa-paper-plane"></i> Enviar mensaje
+          </button>
+          <p class="form-note">* Powered by <a href="https://formspree.io" target="_blank">Formspree</a>.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-bracket">[</span>
+        <span class="logo-text">JV</span>
+        <span class="logo-bracket">]</span>
+      </div>
+      <p class="footer-tagline">
+        <em>"Escribir es una maldición que salva."</em> — Clarice Lispector
+      </p>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/juan-camilo-velásquez-pérez" target="_blank" rel="noopener" id="footer-linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/mojojv" target="_blank" rel="noopener" id="footer-github" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/juancavelasqup/" target="_blank" rel="noopener" id="footer-instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/JuanCamilo13915" target="_blank" rel="noopener" id="footer-twitter" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://stackoverflow.com/users/JuanCamilo13915" target="_blank" rel="noopener" id="footer-stackoverflow" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+        <a href="mailto:juancavelasqup@gmail.com" id="footer-email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p class="footer-copy">© <span id="footerYear"></span> Juan Camilo Velásquez · Medellín, Colombia</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
